@@ -1,5 +1,5 @@
-from app.controllers.matematicas_controller import MatematicasController
-from app.views.matematicas_view import MatematicasView
+from controllers.matematicas_controller import MatematicasController
+from views.matematicas_view import MatematicasView
 
 def main():
     """
