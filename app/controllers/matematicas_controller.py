@@ -1,32 +1,41 @@
-from app.models.matematicas_model import MatematicasModel  # Importa el modelo matemático para usar su lógica
+from app.models.matematicas_model import MatematicasModel
 
 class MatematicasController:
     """
     Controlador para operaciones matemáticas.
 
     Esta clase actúa como intermediario entre la vista y el modelo en el patrón MVC.
-    Su función principal es recibir solicitudes de la vista, procesarlas si es necesario,
-    y delegar la lógica de negocio al modelo correspondiente.
     """
 
     def __init__(self):
         """
-        Inicializa el controlador creando una instancia del modelo MatematicasModel.
-        Esto permite que el controlador tenga acceso a los métodos y atributos del modelo.
+        Inicializa el controlador con una instancia del modelo.
         """
-        self.modelo = MatematicasModel()  # Instancia del modelo matemático
+        self.modelo = MatematicasModel()
 
     def obtener_base_menos_uno(self, numero):
         """
-        Llama al modelo para obtener 1 o -1 según si el número es par o impar.
-
-        Parámetros:
-            numero (int): Número a evaluar.
-
-        Retorna:
-            int: 1 si el número es par, -1 si es impar.
-
-        Este método actúa como una capa de abstracción entre la vista y el modelo,
-        permitiendo que la vista no interactúe directamente con la lógica de negocio.
+        Retorna 1 si el número es par, -1 si es impar.
         """
-        return self.modelo.base_menos_uno(numero)  # Llama al método del modelo y retorna el resultado
+        return self.modelo.base_menos_uno(numero)
+
+    def calcular(self, funcion, x):
+        """
+        Delegar operaciones a funciones matemáticas del modelo.
+        """
+        if funcion == "exp":
+            return self.modelo.exp(x)
+        elif funcion == "sin":
+            return self.modelo.sin(x)
+        elif funcion == "cos":
+            return self.modelo.cos(x)
+        elif funcion == "arcsin":
+            return self.modelo.arcsin(x)
+        elif funcion == "arccos":
+            return self.modelo.arccos(x)
+        elif funcion == "sinh":
+            return self.modelo.sinh(x)
+        elif funcion == "cosh":
+            return self.modelo.cosh(x)
+        else:
+            return "Función no válida"

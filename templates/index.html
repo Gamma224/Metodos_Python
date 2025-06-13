@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora Matemática</title>
+</head>
+<body>
+    <h1>Calculadora MVC</h1>
+    <form method="post" action="/calcular">
+        <label for="funcion">Función:</label>
+        <select name="funcion" id="funcion">
+            <option value="exp">e^x</option>
+            <option value="sin">sin(x)</option>
+            <option value="cos">cos(x)</option>
+            <option value="arcsin">arcsin(x)</option>
+            <option value="arccos">arccos(x)</option>
+            <option value="sinh">sinh(x)</option>
+            <option value="cosh">cosh(x)</option>
+        </select><br><br>
+
+        <label for="x">Valor de x:</label>
+        <input type="text" name="x"><br><br>
+
+        <input type="submit" value="Calcular">
+    </form>
+
+    {% if resultado is defined %}
+        <h2>Resultado: {{ resultado }}</h2>
+    {% endif %}
+</body>
+</html>
+cls
